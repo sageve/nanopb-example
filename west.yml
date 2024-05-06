@@ -1,0 +1,26 @@
+manifest:
+  version: 0.7
+ 
+  defaults:
+    remote: zephyrproject
+  remotes:
+    - name: zephyrproject
+      url-base: https://github.com/zephyrproject-rtos
+  group-filter: [+optional]
+  projects:
+    - name: zephyr
+      repo-path: zephyr
+      revision: main
+      import:
+        path-prefix: deps
+        name-allowlist:
+          - cmsis
+          - hal_stm32
+          - nanopb
+      path: zephyr
+    - name: nanopb-module
+      url: https://github.com/sageve/nanopb-module
+      path: deps/modules/nanopb-module
+      revision: main
+  self:
+    path: app
